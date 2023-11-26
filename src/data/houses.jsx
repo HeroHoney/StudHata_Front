@@ -1,8 +1,8 @@
-import photo1 from '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/assets/apartment1.jpeg';
-import photo2 from '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/assets/room1.jpeg';
-import photo3 from '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/assets/Хостел.jpeg';
-import photo4 from '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/assets/Общежитие.jpeg';
-import photo5 from '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/assets/Квартира.jpeg';
+import photo1 from '../assets/apartment1.jpeg';
+import photo2 from '../assets/room1.jpeg';
+import photo3 from '../assets/Хостел.jpeg';
+import photo4 from '../assets/Общежитие.jpeg';
+import photo5 from '../assets/Квартира.jpeg';
 
 const products = [
     {

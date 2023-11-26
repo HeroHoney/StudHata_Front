@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/styles/Login.css';
+import '../styles/Login.css';
 
 const Login = () => {
   const navigate = useNavigate();

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from "../components/UI/NavBar/NavBar";
 import Footer from '../components/UI/Footer/Footer';
-import '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/styles/Roommates.css';
+import '../styles/Roommates.css';
 
 const CreateRoommate = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

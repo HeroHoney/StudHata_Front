@@ -4,7 +4,7 @@ import Footer from '../components/UI/Footer/Footer';
 import NavBar from '../components/UI/NavBar/NavBar';
 
 import { StarIcon } from '@heroicons/react/20/solid'
-import products from '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/data/houses.jsx';
+import products from '../data/houses.jsx';
 const reviews = { href: '#', average: 4, totalCount: 117 }
 
 function classNames(...classes) {

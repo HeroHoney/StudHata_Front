@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/components/filter/Filter.css";
+import "./Filter.css";
 
 const RentalFilter = ({ onFilter }) => {
   const [minPrice, setMinPrice] = useState("");

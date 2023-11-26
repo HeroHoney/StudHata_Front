@@ -1,6 +1,6 @@
 import React from "react";
-import Button from '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/components/button/Button.jsx';
-import "/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/styles/Main.css"
+import Button from '../../../components/button/Button.jsx';
+import "../../../styles/Main.css"
 
 const Hero = ()=>{
 

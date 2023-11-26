@@ -1,9 +1,9 @@
-import Cash from '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/assets/8163084.png';
-import Location from '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/assets/8163131.png';
-import Security from "/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/assets/8406284.png"
-import Friends from '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/assets/8893936.png';
-import Comfort from '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/assets/8434690.png';
-import Info from '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/assets/11507075.png';
+import Cash from '../assets/8163084.png';
+import Location from '../assets/8163131.png';
+import Security from "../assets/8406284.png"
+import Friends from '../assets/8893936.png';
+import Comfort from '../assets/8434690.png';
+import Info from '../assets/11507075.png';
 
 const blogPosts = [
    

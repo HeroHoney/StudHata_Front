@@ -1,8 +1,8 @@
 import React from 'react';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon,  XMarkIcon } from '@heroicons/react/24/outline';
-import "/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/components/UI/NavBar/NavBar.module.css";
-import Logo from "/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/assets/StudHata-3.png";
+import "../../../components/UI/NavBar/NavBar.module.css";
+import Logo from "../../../assets/StudHata-3.png";
 const navigation = [
     { name: 'Жилье', href: '/houses' },
     { name: 'Сожители', href: '/roommates' },

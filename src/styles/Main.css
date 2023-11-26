@@ -57,7 +57,7 @@
   .hero {
     position: relative; 
     background: linear-gradient(rgba(125, 186, 207, 0.8), rgba(144, 189, 204, 0.8)),
-      url("/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/assets/dau-ogrenci-yurdu-banner-2.jpg");
+      url("/src/assets/dau-ogrenci-yurdu-banner-2.jpg");
     background-size: cover; 
     background-position: center; 
     height: 100vh; 

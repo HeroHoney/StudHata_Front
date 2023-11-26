@@ -1,5 +1,5 @@
 import React from 'react';
-import blogPosts from '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/data/blogPosts.jsx';
+import blogPosts from '../../../data/blogPosts.jsx';
 const BlogSection = () => {
 
   return (

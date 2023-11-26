@@ -1,5 +1,5 @@
 import React from 'react';
-import '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/components/UI/Footer/Footer.css';
+import './Footer.css';
 
 const Footer = () => {
   return (

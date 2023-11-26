@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 import Footer from "../components/UI/Footer/Footer";
 import NavBar from "../components/UI/NavBar/NavBar";
-import "/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/styles/HataGuide.css";
-import faqData from '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/data/faqData.jsx'
+import "../styles/HataGuide.css";
+import faqData from '../data/faqData.jsx'
 
 const HataGuide = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

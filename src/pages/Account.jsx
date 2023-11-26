@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NavBar from "../components/UI/NavBar/NavBar";
-import img1 from "/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/assets/StudHata-3.png"
-import "/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/styles/Account.css"
+import img1 from "../assets/StudHata-3.png"
+import "../styles/Account.css"
 
 const Account = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

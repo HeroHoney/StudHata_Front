@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import RentalFilter from "/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/components/filter/RentalFilter.jsx"; 
+import RentalFilter from "../components/filter/RentalFilter.jsx"; 
 import Footer from "../components/UI/Footer/Footer";
 import NavBar from "../components/UI/NavBar/NavBar";
-import '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/styles/Houses.css';
+import '../styles/Houses.css';
 import { useLoaderData } from "react-router-dom";
-import products from '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/data/houses.jsx';
+import products from '../data/houses.jsx';
 
 
 const Houses = () => {

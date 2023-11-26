@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import { PaperClipIcon } from '@heroicons/react/20/solid'
 import NavBar from "../components/UI/NavBar/NavBar";
 import Footer from '../components/UI/Footer/Footer';
-import '/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/styles/Roommates.css';
+import '../styles/Roommates.css';
 import roommates from '../data/roommates';
-import RentalFilter from "/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/components/filter/RentalFilter.jsx"; 
+import RentalFilter from "../components/filter/RentalFilter.jsx"; 
 
 const Roommates = () =>{
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
