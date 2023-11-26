@@ -1,0 +1,64 @@
+.custom-button {
+    background-color: #73bcd4;
+}
+
+.bg-gradient {
+    min-height: 100vh;
+}
+
+
+.text-fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .feature {
+    position: relative; 
+    z-index: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    background-color: #ffffff;
+    margin: 0 auto;
+    border-radius: 15px;
+    margin-top: -7rem; 
+    animation: fadeIn 1s ease-in forwards;
+  }  
+  
+  .contactsales{
+    position: relative; 
+    width: 85%;
+    background-color: #ffffff;
+    margin: 0 auto;
+    border-radius: 15px;
+    animation: fadeIn 1s ease-in forwards;
+    margin-bottom: 2rem;
+  }
+  .main-icon{
+      background-color: #73bcd4;
+  }
+
+  .blog-text{
+    font-size:1.7rem;
+    padding-bottom: 1rem;
+    color:#1a262a;
+  }
+
+  .hero {
+    position: relative; 
+    background: linear-gradient(rgba(125, 186, 207, 0.8), rgba(144, 189, 204, 0.8)),
+      url("/Users/batyrbekasel/Desktop/StudHata_front/studhata_front/studhata/src/assets/dau-ogrenci-yurdu-banner-2.jpg");
+    background-size: cover; 
+    background-position: center; 
+    height: 100vh; 
+  }

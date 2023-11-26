@@ -1,0 +1,23 @@
+.login{
+    background-color: #7DBACF;
+    min-height: 100vh;
+}
+
+.login-form{
+    border: 1px #ffff solid;
+    border-radius: 15px;
+    background-color: aliceblue;
+}
+
+.login-text{
+    color:#5cb4d1;
+}
+
+.login-buttom{
+    color: #ffff;
+    background-color: #5cb4d1;
+}
+
+.login-buttom:hover{
+    background-color: #96d0e4;
+}
