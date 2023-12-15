@@ -1,10 +1,13 @@
 // Roommates.jsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavBar from '../components/UI/NavBar/NavBar';
 import Footer from '../components/UI/Footer/Footer';
 import '../styles/Roommates.css';
 import roommates from '../data/roommates';
 import RentalFilter from '../components/filter/RentalFilter.jsx';
+import { getAllAnnouncements } from '../store/features/announcement/announcementSlice.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { store } from '../store/store.js';
 
 const Roommates = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,7 +18,12 @@ const Roommates = () => {
     propertyType: '',
     region: '',
   });
-
+  const{announcements} = useSelector((store) => store.announcement);
+  const dispatch= useDispatch();
+  useEffect(() => { 
+    dispatch(getAllAnnouncements());
+   },[])
+   console.log(announcements)
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [swipeDirection, setSwipeDirection] = useState(null);
 

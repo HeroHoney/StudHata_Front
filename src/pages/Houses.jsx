@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RentalFilter from "../components/filter/RentalFilter.jsx"; 
 import Footer from "../components/UI/Footer/Footer";
 import NavBar from "../components/UI/NavBar/NavBar";
 import '../styles/Houses.css';
 import { useLoaderData } from "react-router-dom";
 import products from '../data/houses.jsx';
+import { useDispatch, useSelector } from "react-redux";
+import { store } from "../store/store.js";
+import { getAllHousing } from "../store/features/housing/housingSlice.js";
 
 
 const Houses = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+  const { housings  } = useSelector((store) => store.housing);
+  const dispatch = useDispatch();
+
+  useEffect(() => { 
+    dispatch(getAllHousing());
+   },[])
   const [filterParams, setFilterParams] = useState({
     minPrice: "", 
     maxPrice: "", 

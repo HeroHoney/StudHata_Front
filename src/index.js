@@ -14,7 +14,8 @@ import ErrorHanding from './components/ErrorHanding/ErrorHanding';
 import Account from './pages/Account';
 import CreateHouseItem from './pages/CreateHouseItem';
 import CreateRoommate from './pages/CreateRoommate';
-
+import { store } from './store/store';
+import { Provider } from 'react-redux';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -65,9 +66,11 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <Provider store={store}>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  </Provider>
 );
 
 reportWebVitals();

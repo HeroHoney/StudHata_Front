@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
+import { useDispatch } from "react-redux";
+import { saveUserInfo } from "../store/features/user/userSlice";
+import { axiosInstance } from "../config/config";
 
 const Login = () => {
   const navigate = useNavigate();
   const [isRegistering, setIsRegistering] = useState(false);
-
+  const dispatch = useDispatch();
   const toggleMode = () => {
     setIsRegistering(!isRegistering);
   };
@@ -20,22 +23,42 @@ const Login = () => {
     };
   
     if (isRegistering) {
+      if(event.target['register-password'].value !== event.target['register-password-repeat'].value){
+        alert("пороли не савподают");
+        return;
+      }
       formData.fullName = event.target['fullName'] ? event.target['fullName'].value : '';
       formData.email = event.target['customEmail'] ? event.target['customEmail'].value : '';
       formData.phoneNumber = event.target['phoneNumber'] ? event.target['phoneNumber'].value : '';
-      formData.registerPassword = event.target['register-password'] ? event.target['register-password'].value : '';
-      formData.repeatPassword = event.target['register-password-repeat'] ? event.target['register-password-repeat'].value : '';
+      formData.password = event.target['register-password'] ? event.target['register-password'].value : '';
       formData.university = event.target['university'] ? event.target['university'].value : '';
     }
-  
-    try {
-      const response = await axios.post(
-        `https://studhata.kz/api/auth/${isRegistering ? 'register' : 'login'}`,
-        formData);
-      console.log(response.data);
-      navigate('/');
-    } catch (error) {
-      console.error(`Ошибка при ${isRegistering ? 'регистрации' : 'входе'}:`, error);
+
+
+    if(isRegistering){
+      try {
+        const response = await axiosInstance.post(
+          `/auth/register`,
+          formData);
+        console.log(response.data);
+        navigate('/login');
+        alert("Теперь нужно войти")
+        // cюда сделай так чтобы после регистрации просили залогинеться
+      } catch (error) {
+        console.error(`Ошибка при регистрации:`, error);
+      }
+    }
+    else{
+      try {
+        const response = await axiosInstance.post(
+          `/auth/login`,
+          formData);
+        console.log(response.data);
+        dispatch(saveUserInfo({accessToken : response.data.tokenType + response.data.accessToken}))
+        navigate('/');
+      } catch (error) {
+        console.error(`Ошибка при входе'}:`, error);
+      }
     }
   };
   
