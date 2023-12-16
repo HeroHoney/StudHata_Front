@@ -29,7 +29,7 @@ const Login = () => {
         return;
       }
       formData.fullName = event.target['fullName'] ? event.target['fullName'].value : '';
-      formData.email = event.target['customEmail'] ? event.target['customEmail'].value : '';
+      formData.email = event.target['newEmail'] ? event.target['newEmail'].value : '';
       formData.phoneNumber = event.target['phoneNumber'] ? event.target['phoneNumber'].value : '';
       formData.password = event.target['register-password'] ? event.target['register-password'].value : '';
       formData.university = event.target['university'] ? event.target['university'].value : '';
@@ -38,6 +38,7 @@ const Login = () => {
 
     if(isRegistering){
       try {
+        console.log(formData)
         const response = await axiosInstance.post(
           `/auth/register`,
           formData);
