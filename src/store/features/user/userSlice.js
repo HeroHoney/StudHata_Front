@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    accessToken: ""
+    accessToken: "",
+    isAuth: false
 }
 
 const userSlice = createSlice({
@@ -14,9 +15,15 @@ const userSlice = createSlice({
     deleteUserInfo: (state) => {
         state.accessToken = "";
       },
+    openAuth: (state) =>{
+      state.isAuth = true;
+    },
+    closeAuth: (state) =>{
+      state.isAuth = false;
+    }
   }
 });
 
-export const {saveUserInfo,deleteUserInfo} = userSlice.actions
+export const {saveUserInfo,deleteUserInfo,openAuth,closeAuth} = userSlice.actions
 
 export default userSlice.reducer

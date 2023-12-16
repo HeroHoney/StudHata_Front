@@ -61,7 +61,8 @@ const router = createBrowserRouter([
     path:'/createroommate',
     element:<CreateRoommate/>,
     errorElement: <ErrorHanding/>
-  }
+  },
+
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

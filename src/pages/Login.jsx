@@ -3,9 +3,10 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
 import { useDispatch } from "react-redux";
-import { saveUserInfo } from "../store/features/user/userSlice";
+import { openAuth, saveUserInfo } from "../store/features/user/userSlice";
 import { axiosInstance } from "../config/config";
-
+import { Link } from "react-router-dom";
+import Studhata from "../assets/Studhata.jpg"
 const Login = () => {
   const navigate = useNavigate();
   const [isRegistering, setIsRegistering] = useState(false);
@@ -55,6 +56,7 @@ const Login = () => {
           formData);
         console.log(response.data);
         dispatch(saveUserInfo({accessToken : response.data.tokenType + response.data.accessToken}))
+        dispatch(openAuth());
         navigate('/');
       } catch (error) {
         console.error(`Ошибка при входе'}:`, error);
@@ -66,7 +68,7 @@ const Login = () => {
   return (
     <div className="flex flex-col justify-center px-6 py-12 lg:px-8 login">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <a href="/"><img className="mx-auto h-20 w-auto" src="StudHata.png" alt="Your Company"/></a>
+        <Link to="/"><img className="mx-auto h-20 w-auto" src={Studhata} alt="Your Company"/></Link>
         <h2 className="mt-2 text-center text-2xl font-bold leading-9 tracking-tight text-gray-100">
           {isRegistering ? "Регистрация" : "Вход в личный кабинет"}
         </h2>

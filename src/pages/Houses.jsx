@@ -8,13 +8,12 @@ import products from '../data/houses.jsx';
 import { useDispatch, useSelector } from "react-redux";
 import { store } from "../store/store.js";
 import { getAllHousing } from "../store/features/housing/housingSlice.js";
-
+import { Link } from "react-router-dom";
 
 const Houses = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { housings  } = useSelector((store) => store.housing);
   const dispatch = useDispatch();
-
   useEffect(() => { 
     dispatch(getAllHousing());
    },[])
@@ -72,10 +71,10 @@ const Houses = () => {
               <div className="mt-4 flex justify-between">
                 <div>
                   <h3 className="text-sm text-gray-700">
-                    <a href={`/houses/${product.type}/${product.id}`}>
+                    <Link to={`/houses/${product.type}/${product.id}`}>
                       <span aria-hidden="true" className="absolute inset-0" />
                       {product.region}
-                    </a>
+                    </Link>
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">{product.type}</p>
                   <p className="mt-1 text-sm text-gray-500">{product.price}</p>
