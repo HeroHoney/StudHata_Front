@@ -60,7 +60,7 @@ const CreateHouseItem = () => {
   return (
     <div>
      <NavBar mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
-      <div className="container mx-auto mt-24">
+      <div className="container mx-auto mt-24 mb-20">
         <form className="max-w-md mx-auto" onSubmit={handleSubmit}>
           {/* Выбор типа */}
           <div className="mb-4">
@@ -177,7 +177,7 @@ const CreateHouseItem = () => {
 
           <button
             type="submit"
-            className="w-full bg-indigo-500 text-white p-2 rounded-md hover:bg-indigo-600 transition duration-300"
+            className="w-full text-white p-2 rounded-md transition duration-300 login-buttom"
           >
             Создать
           </button>

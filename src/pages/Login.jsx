@@ -66,7 +66,7 @@ const Login = () => {
   return (
     <div className="flex flex-col justify-center px-6 py-12 lg:px-8 login">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <a href="/"><img className="mx-auto h-20 w-auto" src="Logo.png" alt="Your Company"/></a>
+        <a href="/"><img className="mx-auto h-20 w-auto" src="StudHata.png" alt="Your Company"/></a>
         <h2 className="mt-2 text-center text-2xl font-bold leading-9 tracking-tight text-gray-100">
           {isRegistering ? "Регистрация" : "Вход в личный кабинет"}
         </h2>
@@ -204,7 +204,7 @@ const Login = () => {
           )}
 
           <div>
-            <button type="submit" className="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 login-button">
+            <button type="submit" className="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 login-buttom">
               {isRegistering ? "Зарегистрироваться" : "Войти"}
             </button>
           </div>

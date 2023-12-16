@@ -3,34 +3,38 @@ import { Dialog } from '@headlessui/react';
 import { Bars3Icon,  XMarkIcon } from '@heroicons/react/24/outline';
 import "../../../components/UI/NavBar/NavBar.module.css";
 import Logo from "../../../assets/StudHata-3.png";
-const navigation = [
-    { name: 'Жилье', href: '/houses' },
-    { name: 'Сожители', href: '/roommates' },
-    { name: 'Сдать в аренду', href: '/login' },
-    { name: 'Hata Guide', href: '/Hataguide' },
-];
 
-const headerStyle = {
+const NavBar = ({ mobileMenuOpen, setMobileMenuOpen, isRegistering }) => {
+  const navigation = isRegistering
+    ? [
+        { name: 'Жилье', href: '/houses' },
+        { name: 'Сожители', href: '/roommates' },
+        { name: 'Сдать в аренду', href: '/createhouseads' }, 
+        { name: 'Hata Guide', href: '/hataguide' },
+        { name: 'Избранное', href: '/favorites' },
+      ]
+    : [
+        { name: 'Жилье', href: '/houses' },
+        { name: 'Сожители', href: '/roommates' },
+        { name: 'Сдать в аренду', href: '/login' },
+        { name: 'Hata Guide', href: '/hataguide' },
+      ];
+  const headerStyle = {
     position: 'fixed', 
     top: 0,
     left: 0,
     width: '100%',
-    background: '#7DBACF',
+    background: '#045F7B',
     borderRadius: '15px',
-};
+  };
 
-const NavBar = ({ mobileMenuOpen, setMobileMenuOpen }) => {
   return (
     <header style={headerStyle} className="absolute inset-x-0 top-0 z-50 header-fade-in">
       <nav className="flex items-center justify-between p-3 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img
-              className="h-10 w-auto"
-              src={Logo}
-              alt=""
-            />
+            <img className="h-10 w-auto" src='StudHata.png' alt="" />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -51,9 +55,17 @@ const NavBar = ({ mobileMenuOpen, setMobileMenuOpen }) => {
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="/login" className="text-l font-semibold leading-6 text-gray-100">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+          {isRegistering ? (
+            <>
+              <a href="/profile" className="text-l font-semibold leading-6 text-gray-100">
+                Аккаунт
+              </a>
+            </>
+          ) : (
+            <a href="/login" className="text-l font-semibold leading-6 text-gray-100">
+              Войти <span aria-hidden="true">&rarr;</span>
+            </a>
+          )}
         </div>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -95,7 +107,7 @@ const NavBar = ({ mobileMenuOpen, setMobileMenuOpen }) => {
                     href="#"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
-                    Log in
+                    Войти
                   </a>
                 </div>
               </div>

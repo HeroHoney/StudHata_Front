@@ -60,7 +60,7 @@ const Account = () => {
                     <label htmlFor="profilePhoto" className="cursor-pointer">
                         <img
                             className="h-auto w-full mx-auto"
-                            src={profilePhoto}
+                            src='Studhata.png'
                             alt=""
                         />
                     </label>
@@ -239,36 +239,7 @@ const Account = () => {
                                 </span>
                                 <span class="tracking-wide">Объявления</span>
                             </div>
-                            <ul class="list-inside space-y-2">
-                                <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
-                                <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
-                                <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
-                                <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
-                                <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
-                                <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
-                                <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
-                            </ul>
+                            
                         </div>
                         <div>
                             <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
@@ -286,12 +257,8 @@ const Account = () => {
                             </div>
                             <ul class="list-inside space-y-2">
                                 <li>
-                                    <div class="text-teal-600">Masters Degree in Oxford</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
-                                <li>
-                                    <div class="text-teal-600">Bachelors Degreen in LPU</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                    <div class="text-teal-600">KBTU</div>
+                                    <div class="text-gray-500 text-xs">2021 - Now</div>
                                 </li>
                             </ul>
                         </div>

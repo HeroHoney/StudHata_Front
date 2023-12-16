@@ -1,5 +1,5 @@
 .login{
-    background-color: #7DBACF;
+    background-color: #045F7B;
     min-height: 100vh;
 }
 
@@ -15,9 +15,9 @@
 
 .login-buttom{
     color: #ffff;
-    background-color: #5cb4d1;
+    background-color: #045F7B;
 }
 
 .login-buttom:hover{
-    background-color: #96d0e4;
+    background-color: #045F7B;
 }

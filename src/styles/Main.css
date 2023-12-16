@@ -1,5 +1,5 @@
 .custom-button {
-    background-color: #73bcd4;
+    background-color: #045F7B;
 }
 
 .bg-gradient {
@@ -45,7 +45,7 @@
     margin-bottom: 2rem;
   }
   .main-icon{
-      background-color: #73bcd4;
+      background-color: #045F7B;
   }
 
   .blog-text{
@@ -56,7 +56,7 @@
 
   .hero {
     position: relative; 
-    background: linear-gradient(rgba(125, 186, 207, 0.8), rgba(144, 189, 204, 0.8)),
+    background: linear-gradient(rgba(4, 95, 123,0.8), rgba(144, 189, 204, 0.8)),
       url("/src/assets/dau-ogrenci-yurdu-banner-2.jpg");
     background-size: cover; 
     background-position: center; 

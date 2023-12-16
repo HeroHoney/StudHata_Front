@@ -15,6 +15,13 @@ function HouseItem() {
   const { id } = useParams();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const selectedProduct = products.find((product) => product.id === parseInt(id));
+
+  const openWhatsAppChat = () => {
+    // Replace the phone number with the desired WhatsApp number
+    const phoneNumber = '+77788338640';
+    window.location.href = `https://wa.me/${phoneNumber}`;
+  };
+
   return (
     <div>
        <NavBar mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
@@ -83,6 +90,10 @@ function HouseItem() {
                 </a>
               </div>
             </div>
+            <button className="bg-indigo-500 text-white px-4 py-2 rounded-md mt-4 login-buttom" onClick={openWhatsAppChat}>
+                  Написать
+                </button>
+                <p className="text-gray-500 text-sm mt-2">Verified by StudAgents</p>
           </div>
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">

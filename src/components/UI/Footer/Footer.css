@@ -1,3 +1,37 @@
-.footer{
-    background-color: #73bcd4;
-}
+.footer {
+    background-color: #045F7B;
+    padding: 40px 0;
+  }
+  
+  .footer-section {
+    margin-bottom: 20px;
+  }
+  
+  .footer-heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  .footer-text {
+    color: #ccc;
+  }
+  
+.social-icons {
+    margin-left: 19vh;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .social-icon {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    color: #ccc;
+  }
+  
+  

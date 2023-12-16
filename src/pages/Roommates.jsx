@@ -7,7 +7,6 @@ import roommates from '../data/roommates';
 import RentalFilter from '../components/filter/RentalFilter.jsx';
 import { getAllAnnouncements } from '../store/features/announcement/announcementSlice.js';
 import { useDispatch, useSelector } from 'react-redux';
-import { store } from '../store/store.js';
 
 const Roommates = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,12 +17,12 @@ const Roommates = () => {
     propertyType: '',
     region: '',
   });
-  const{announcements} = useSelector((store) => store.announcement);
-  const dispatch= useDispatch();
-  useEffect(() => { 
+  const { announcements } = useSelector((store) => store.announcement);
+  const dispatch = useDispatch();
+  useEffect(() => {
     dispatch(getAllAnnouncements());
-   },[])
-   console.log(announcements)
+  }, []);
+  console.log(announcements);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [swipeDirection, setSwipeDirection] = useState(null);
 
@@ -61,15 +60,22 @@ const Roommates = () => {
   };
 
   return (
-    <div>
+    <div className="roommates-container">
       <NavBar mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
-      <RentalFilter onFilter={handleFilter} />
-      {filteredRoommates.length > 0 && (
-        <div className="mx-auto shadow-lg roommates-card mt-12">
-          <div className={`swipe-container ${swipeDirection}`}>
-            <div className={`swipe-card ${swipeDirection}`} key={filteredRoommates[currentCardIndex].fullName}>
-              <div className="mt-6 border-t border-gray-100">
-                <div className="px-4 sm:px-0">
+
+      <div className="roommates-content">
+        {/* Left side - Filter */}
+        <div className="filter-container">
+          <RentalFilter onFilter={handleFilter} />
+        </div>
+
+        {/* Right side - Roommates Cards */}
+        <div className="cards-container">
+          {filteredRoommates.length > 0 && (
+            <div className={`swipe-container ${swipeDirection}`}>
+              <div className={`swipe-card ${swipeDirection}`} key={filteredRoommates[currentCardIndex].fullName}>
+                <div className="card-details">
+                  <div className="px-4 sm:px-0">
                   <h3 className="text-base font-semibold leading-7 text-gray-900">Ищу сожителя</h3>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -108,19 +114,21 @@ const Roommates = () => {
                         {filteredRoommates[currentCardIndex].description}
                     </dd>
                 </div>
-              </div>
-              <div className="swipe-actions">
-                <button className="swipe-action" onClick={handleSwipeLeft}>
-                ✖️
-                </button>
-                <button className="swipe-action" onClick={handleSwipeRight}>
-                ❤️
-                </button>
+                </div>
+                <div className="swipe-actions">
+                  <button className="swipe-action dislike" onClick={handleSwipeLeft}>
+                    ❌
+                  </button>
+                  <button className="swipe-action like" onClick={handleSwipeRight}>
+                    ❤️
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
-      )}
+      </div>
+
       <Footer />
     </div>
   );

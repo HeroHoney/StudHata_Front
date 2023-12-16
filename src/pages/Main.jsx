@@ -14,7 +14,7 @@ const Main = () => {
 
   return (
     <div className="bg-gradient">
-      <NavBar mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
+      <NavBar mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} isRegistering />
       <Hero/>
       <Feature/>
       <BlogSection/>
