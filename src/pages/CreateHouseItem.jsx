@@ -1,20 +1,31 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'; 
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../components/UI/NavBar/NavBar';
 import Footer from '../components/UI/Footer/Footer';
+import { createHousing } from '../store/features/housing/housingSlice.js'; 
 
 const CreateHouseItem = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const isLoading = useSelector((state) => state.housing.isLoading);
+
+  const generateUniqueId = () => {
+    return 'realtor_' + Math.random().toString(36).substr(2, 9);
+  };
+
   const [formData, setFormData] = useState({
-    type: '',
-    region: '',
-    price: '',
+    title: '',
     description: '',
-    highlights: [],
-    details: [],
-    image: null,
+    deliveryPeriod: '',
+    typeOfHousing: '',
+    price: '',
+    city: '',
+    area: '',
+    address: '',
+    realtorId: generateUniqueId()
   });
 
   const handleInputChange = (e) => {
@@ -25,53 +36,67 @@ const CreateHouseItem = () => {
     });
   };
 
-  const handleHighlightsChange = (e) => {
-    const { value } = e.target;
-    setFormData({
-      ...formData,
-      highlights: value.split(',').map((highlight) => highlight.trim()),
-    });
-  };
-
-  const handleDetailsChange = (e) => {
-    const { value } = e.target;
-    setFormData({
-      ...formData,
-      details: value.split(',').map((detail) => detail.trim()),
-    });
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    setFormData({
-      ...formData,
-      image: file,
-    });
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Здесь вы можете выполнить отправку данных на сервер или другую логику обработки формы
-    console.log('Form data submitted:', formData);
-    // После успешной отправки перенаправьте пользователя на страницу с созданным объявлением
-    navigate('/created-house-item');
+    dispatch(createHousing(formData));
   };
 
   return (
     <div>
-     <NavBar mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
+      <NavBar mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
       <div className="container mx-auto mt-24 mb-20">
         <form className="max-w-md mx-auto" onSubmit={handleSubmit}>
-          {/* Выбор типа */}
           <div className="mb-4">
-            <label htmlFor="type" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="title" className="block text-sm font-medium text-gray-700">
+              Название:
+            </label>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              className="mt-1 p-2 border rounded-md w-full"
+              value={formData.title}
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+            Дополнительная информация:
+            </label>
+            <input
+              type="text"
+              name="description"
+              id="description"
+              className="mt-1 p-2 border rounded-md w-full"
+              value={formData.description}
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="deliveryPeriod" className="block text-sm font-medium text-gray-700">
+              Период аренды:
+            </label>
+            <input
+              type="text"
+              name="deliveryPeriod"
+              id="deliveryPeriod"
+              className="mt-1 p-2 border rounded-md w-full"
+              value={formData.deliveryPeriod}
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="typeOfHousing" className="block text-sm font-medium text-gray-700">
               Тип:
             </label>
             <select
-              name="type"
-              id="type"
+              name="typeOfHousing"
+              id="typeOfHousing"
               className="mt-1 p-2 border rounded-md w-full"
-              value={formData.type}
+              value={formData.typeOfHousing}
               onChange={handleInputChange}
             >
               <option value="">-</option>
@@ -81,26 +106,6 @@ const CreateHouseItem = () => {
             </select>
           </div>
 
-          {/* Выбор региона */}
-          <div className="mb-4">
-            <label htmlFor="region" className="block text-sm font-medium text-gray-700">
-              Регион:
-            </label>
-            <select
-              name="region"
-              id="region"
-              className="mt-1 p-2 border rounded-md w-full"
-              value={formData.region}
-              onChange={handleInputChange}
-            >
-              <option value="">-</option>
-              <option value="Астана">Астана</option>
-              <option value="Алматы">Алматы</option>
-              <option value="Алматы">Шымкент</option>
-            </select>
-          </div>
-
-          {/* Поле для цены */}
           <div className="mb-4">
             <label htmlFor="price" className="block text-sm font-medium text-gray-700">
               Цена:
@@ -115,71 +120,58 @@ const CreateHouseItem = () => {
             />
           </div>
 
-          {/* Поле для описания */}
           <div className="mb-4">
-            <label htmlFor="description" className="block text-sm font-medium text-gray-700">
-              Описание:
+            <label htmlFor="city" className="block text-sm font-medium text-gray-700">
+              Город:
             </label>
-            <textarea
-              name="description"
-              id="description"
-              rows="4"
+            <select
+              name="city"
+              id="city"
               className="mt-1 p-2 border rounded-md w-full"
-              value={formData.description}
+              value={formData.city}
               onChange={handleInputChange}
-            ></textarea>
+            >
+              <option value="">-</option>
+              <option value="Астана">Астана</option>
+              <option value="Алматы">Алматы</option>
+              <option value="Алматы">Шымкент</option>
+            </select>
           </div>
 
-          {/* Поле для удобств (comma-separated) */}
           <div className="mb-4">
-            <label htmlFor="highlights" className="block text-sm font-medium text-gray-700">
-            Удобства (разделенные запятой):
+            <label htmlFor="area" className="block text-sm font-medium text-gray-700">
+              Микрорайон:
             </label>
             <input
               type="text"
-              name="highlights"
-              id="highlights"
+              name="area"
+              id="area"
               className="mt-1 p-2 border rounded-md w-full"
-              value={formData.highlights.join(',')}
-              onChange={handleHighlightsChange}
+              value={formData.area}
+              onChange={handleInputChange}
             />
           </div>
 
-          {/* Поле для дополнительных данных (comma-separated) */}
           <div className="mb-4">
-            <label htmlFor="details" className="block text-sm font-medium text-gray-700">
-            Поблизости находятся (разделенные запятой):
+            <label htmlFor="address" className="block text-sm font-medium text-gray-700">
+              Улица,дом/квартира:
             </label>
             <input
               type="text"
-              name="details"
-              id="details"
+              name="address"
+              id="address"
               className="mt-1 p-2 border rounded-md w-full"
-              value={formData.details.join(',')}
-              onChange={handleDetailsChange}
-            />
-          </div>
-
-          {/* Поле для изображения */}
-          <div className="mb-4">
-            <label htmlFor="image" className="block text-sm font-medium text-gray-700">
-              Фото:
-            </label>
-            <input
-              type="file"
-              accept="image/*"
-              name="image"
-              id="image"
-              className="mt-1 p-2 border rounded-md w-full"
-              onChange={handleImageChange}
+              value={formData.address}
+              onChange={handleInputChange}
             />
           </div>
 
           <button
             type="submit"
             className="w-full text-white p-2 rounded-md transition duration-300 login-buttom"
+            disabled={isLoading} 
           >
-            Создать
+            {isLoading ? 'Creating...' : 'Create'}
           </button>
         </form>
       </div>

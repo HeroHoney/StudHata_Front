@@ -31,7 +31,7 @@ const CreateRoommate = () => {
   return (
     <div>
      <NavBar mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
-      <div className="container mx-auto mt-24">
+      <div className="container mx-auto mt-24 mb-10">
         <form className="max-w-md mx-auto" onSubmit={handleSubmit}>
           {/* Поля для ввода данных */}
           <div className="mb-4">
@@ -121,9 +121,9 @@ const CreateRoommate = () => {
           {/* Кнопка для отправки формы */}
           <button
             type="submit"
-            className="w-full bg-indigo-500 text-white p-2 rounded-md hover:bg-indigo-600 transition duration-300"
+            className="w-full bg-indigo-500 text-white p-2 rounded-md hover:bg-indigo-600 transition duration-300 login-buttom"
           >
-            Create Listing
+            Cоздать
           </button>
         </form>
       </div>

@@ -17,7 +17,6 @@ function HouseItem() {
   const selectedProduct = products.find((product) => product.id === parseInt(id));
 
   const openWhatsAppChat = () => {
-    // Replace the phone number with the desired WhatsApp number
     const phoneNumber = '+77788338640';
     window.location.href = `https://wa.me/${phoneNumber}`;
   };

@@ -3,20 +3,28 @@ import { Dialog } from '@headlessui/react';
 import { Bars3Icon,  XMarkIcon } from '@heroicons/react/24/outline';
 import "../../../components/UI/NavBar/NavBar.module.css";
 import Logo from "../../../assets/StudHata-3.png";
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { closeAuth } from '../../../store/features/user/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 const NavBar = ({ mobileMenuOpen, setMobileMenuOpen, isRegistering }) => {
-  const navigation = isRegistering
+  const {isAuth} = useSelector((store) => store.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const navigation = isAuth
     ? [
         { name: 'Жилье', href: '/houses' },
         { name: 'Сожители', href: '/roommates' },
         { name: 'Сдать в аренду', href: '/createhouseads' }, 
+        { name: 'Создать обьявление', href: '/createroommate' }, 
         { name: 'Hata Guide', href: '/hataguide' },
-        { name: 'Избранное', href: '/favorites' },
       ]
     : [
         { name: 'Жилье', href: '/houses' },
         { name: 'Сожители', href: '/roommates' },
         { name: 'Сдать в аренду', href: '/login' },
+        { name: 'Создать обьявление', href: '/login' },
         { name: 'Hata Guide', href: '/hataguide' },
       ];
   const headerStyle = {
@@ -27,15 +35,19 @@ const NavBar = ({ mobileMenuOpen, setMobileMenuOpen, isRegistering }) => {
     background: '#045F7B',
     borderRadius: '15px',
   };
+  const logOut = () => { 
+    navigate('/');
+    dispatch(closeAuth())
 
+   }
   return (
     <header style={headerStyle} className="absolute inset-x-0 top-0 z-50 header-fade-in">
       <nav className="flex items-center justify-between p-3 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5">
+          <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             <img className="h-10 w-auto" src='StudHata.png' alt="" />
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -49,22 +61,26 @@ const NavBar = ({ mobileMenuOpen, setMobileMenuOpen, isRegistering }) => {
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <a key={item.name} href={item.href} className="text-l font-semibold leading-10 text-gray-100 ">
+            <Link key={item.name} to={item.href} className="text-l font-semibold leading-10 text-gray-100 ">
               {item.name}
-            </a>
+            </Link>
           ))}
         </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          {isRegistering ? (
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-5">
+          {isAuth ? (
             <>
-              <a href="/profile" className="text-l font-semibold leading-6 text-gray-100">
+              <Link to="/profile" className="text-l font-semibold leading-6 text-gray-100">
                 Аккаунт
-              </a>
+              </Link>
+              
+              <button onClick={() => logOut()} className="text-l font-semibold leading-6 text-gray-100">
+                Выйти
+              </button>
             </>
           ) : (
-            <a href="/login" className="text-l font-semibold leading-6 text-gray-100">
+            <Link to="/login" className="text-l font-semibold leading-6 text-gray-100">
               Войти <span aria-hidden="true">&rarr;</span>
-            </a>
+            </Link>
           )}
         </div>
       </nav>
@@ -93,22 +109,22 @@ const NavBar = ({ mobileMenuOpen, setMobileMenuOpen, isRegistering }) => {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.href}
+                      to={item.href}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
                 <div className="py-6">
-                  <a
-                    href="#"
+                  <Link
+                    to="#"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     Войти
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { axiosInstance} from "../../../config/config";
+import { axiosInstance } from "../../../config/config";
 
 const initialState = {
   housings: [],
@@ -13,7 +13,22 @@ export const getAllHousing = createAsyncThunk(
       const res = await axiosInstance.get("/housing/public/all");
       return res.data;
     } catch (error) {
-      return console.log(error);
+      console.log(error);
+      throw error;
+    }
+  }
+);
+
+
+export const createHousing = createAsyncThunk(
+  "housing/createHousing",
+  async (newHousingData) => {
+    try {
+      const res = await axiosInstance.post("/housing/createHousing", newHousingData);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+      throw error; 
     }
   }
 );
@@ -33,6 +48,15 @@ const housingSlice = createSlice({
         state.success = payload.success;
       })
       .addCase(getAllHousing.rejected, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(createHousing.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(createHousing.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+      })
+      .addCase(createHousing.rejected, (state) => {
         state.isLoading = false;
       });
   },

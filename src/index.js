@@ -16,6 +16,8 @@ import CreateHouseItem from './pages/CreateHouseItem';
 import CreateRoommate from './pages/CreateRoommate';
 import { store } from './store/store';
 import { Provider } from 'react-redux';
+import { register } from './serviceWorkerRegistration';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -74,3 +76,4 @@ root.render(
 );
 
 reportWebVitals();
+register();
