@@ -42,3 +42,95 @@ npm start
 
 # Сборка для продакшена
 npm run build
+
+```
+
+## Структура проекта
+
+Объяснение структуры директорий и основных файлов в проекте.
+
+```plaintext
+/src
+  /assets
+  /components
+    /ErrorHandling
+    /UI
+      /button
+    /filter
+  Container.jsx
+  /config
+    config.js
+  /data
+  /pages
+    About.jsx
+    Account.jsx
+    Blog.jsx
+    CreateHouseItem.jsx
+    CreateRoommate.jsx
+    HataGuide.jsx
+    HouseItem.jsx
+    Houses.jsx
+    Login.jsx
+    Main.jsx
+    Roommates.jsx
+  /store
+    /features
+      /announcement
+        announcementSlice.js
+      /housing
+        housingSlice.js
+      /user
+        userSlice.js
+      store.js
+  /styles
+    Account.css
+    HataGuide.css
+    Houses.css
+    Login.css
+    Main.css
+    Roommates.css
+  App.css
+  App.js
+  App.test.js
+  index.css
+  index.js
+  logo.svg
+  reportWebVitals.js
+  setupTests.js
+/public
+  index.html
+
+```
+
+# Название проекта
+
+Краткое описание проекта и его целей.
+
+## Используемые технологии
+
+- **React**: JavaScript библиотека для построения пользовательских интерфейсов.
+- **Redux**: Управление состоянием приложения.
+- **CSS**: Язык стилей для оформления пользовательского интерфейса.
+- **Redux Toolkit**: Официальный комплект инструментов для упрощения использования Redux.
+- **React Router**: Навигация между страницами в React-приложении.
+- **... (другие технологии)**
+
+## Конфигурация
+
+В данном проекте используется файл конфигурации `config.js`, расположенный в директории `/config`. Этот файл содержит следующие настройки:
+
+- **API URL**: `https://studhata.kz/api`
+
+## Работа с внешними API
+
+Для взаимодействия с внешним API используется библиотека Axios. В файле `axiosConfig.js` вы найдете следующий код:
+
+```javascript
+import axios from "axios";
+
+export const url = "https://studhata.kz/api";
+
+export const axiosInstance = axios.create({
+  baseURL: url,
+});
+
